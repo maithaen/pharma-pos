@@ -1,0 +1,75 @@
+// Accordion
+  const accordion = [
+    {
+      name: "Main Menu",
+      icon: <GoChevronLeft size={20} />,
+      subMenu: subMenu,
+    },
+    {
+      name: "Sales",
+      icon: <BiCart size={20} />,
+      subMenu: subMenu,
+    },
+    {
+      name: "Reports",
+      icon: <TbReportAnalytics size={20} />,
+      subMenu: subMenu,
+    },
+    {
+      name: "Items",
+      icon: <BsCapsulePill size={20} />,
+      subMenu: subMenu,
+    },
+    {
+      name: "Suppliers",
+      icon: <BiNotepad size={20} />,
+      subMenu: subMenu,
+    },
+    {
+      name: "Employees",
+      icon: <FaRegAddressCard size={20} />,
+      subMenu: subMenu,
+    },
+    {
+      name: "Customers",
+      icon: <MdManageAccounts size={20} />,
+      subMenu: subMenu,
+    },
+    {
+      name: "Settings",
+      icon: <IoIosSettings size={20} />,
+      subMenu: subMenu,
+    },
+    {
+      name: "Help",
+      icon: <MdHelpOutline size={20} />,
+      subMenu: subMenu,
+    },
+    {
+      name: "Log Out",
+      icon: <CiLogin size={20} />,
+      subMenu: subMenu,
+    },
+  ];
+
+
+
+   {menuText.map((item, index) => (
+                <li key={`${item}-${index}`}>
+                  <a onClick={() => handleAccordionClick(index)}>
+                    {menuIcons[index]}  
+                    <div>{item}</div>
+                    {activeAccordion === index ? (
+                      <GoChevronDown size={16} />
+                    ) : (
+                      <GoChevronLeft size={16} />
+                    )}
+                  </a>
+                  {activeAccordion === index && (
+                    <ul className="pl-16 space-y-2" onClick={() => handleSubmenuClick(index)}>
+                      <li>{submenuReport(index)}</li>
+
+                    </ul>
+                  )}
+                </li>
+              ))}
