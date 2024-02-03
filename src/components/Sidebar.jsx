@@ -30,7 +30,7 @@ export default function MainSideLeft(props) {
   // Accordion
   const accordion = [
     {
-      name: "Main Menu",
+      name: "Home",
       icon: <IoHomeOutline size={20} />,
     },
     {
