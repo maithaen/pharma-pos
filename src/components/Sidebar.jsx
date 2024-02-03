@@ -97,7 +97,7 @@ export default function MainSideLeft(props) {
                 <li key={`${item}-${index}`}>
                   <a onClick={() => handleAccordionClick(index)}>
                     {item.icon}
-                    <div>{item.name}</div>
+                    {item.name}
                     {item.subMenu == null ? (
                       <></>
                     ) : activeAccordion === index ? (
