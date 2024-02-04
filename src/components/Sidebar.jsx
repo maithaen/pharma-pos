@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+
+import React, { useState, createContext} from "react";
 import { ScrollShadow } from "@nextui-org/react";
 //icons
 import { IoHomeOutline } from "react-icons/io5";
@@ -14,8 +15,12 @@ import { MdHelpOutline } from "react-icons/md";
 import { CiLogin } from "react-icons/ci";
 
 export default function MainSideLeft(props) {
-  const { openSidebar } = props;
+  const TitleContext = createContext();
+  const [title, setTitle] = useState("");
 
+
+
+  const { openSidebar } = props;
   const [activeAccordion, setActiveAccordion] = useState(null);
 
   const handleAccordionClick = (index) => {
@@ -30,51 +35,51 @@ export default function MainSideLeft(props) {
   // Accordion
   const accordion = [
     {
-      name: "Home",
+      title: "Home",
       icon: <IoHomeOutline size={20} />,
     },
     {
-      name: "Sales",
+      title: "Sales",
       icon: <BiCart size={20} />,
       subMenu: ["submenuS 1", "submenuS 2"],
     },
     {
-      name: "Reports",
+      title: "Reports",
       icon: <TbReportAnalytics size={20} />,
       subMenu: ["submenuS 1", "submenuS 2"],
     },
     {
-      name: "Items",
+      title: "Items",
       icon: <BsCapsulePill size={20} />,
       subMenu: ["submenuS 1", "submenuS 2"],
     },
     {
-      name: "Suppliers",
+      title: "Suppliers",
       icon: <BiNotepad size={20} />,
       subMenu: ["submenuS 1", "submenuS 2"],
     },
     {
-      name: "Employees",
+      title: "Employees",
       icon: <FaRegAddressCard size={20} />,
       subMenu: ["submenuS 1", "submenuS 2"],
     },
     {
-      name: "Customers",
+      title: "Customers",
       icon: <MdManageAccounts size={20} />,
       subMenu: ["submenuS 1", "submenuS 2"],
     },
     {
-      name: "Settings",
+      title: "Settings",
       icon: <IoIosSettings size={20} />,
       subMenu: ["submenuS 1", "submenuS 2", "usersetting"],
     },
     {
-      name: "Help",
+      title: "Help",
       icon: <MdHelpOutline size={20} />,
       subMenu: ["submenuS 1", "submenuS 2"],
     },
     {
-      name: "Log Out",
+      title: "Log Out",
       icon: <CiLogin size={20} />,
     },
   ];
@@ -97,7 +102,7 @@ export default function MainSideLeft(props) {
                 <li key={`${item}-${index}`}>
                   <a onClick={() => handleAccordionClick(index)}>
                     {item.icon}
-                    {item.name}
+                    {item.title}
                     {item.subMenu == null ? (
                       <></>
                     ) : activeAccordion === index ? (
